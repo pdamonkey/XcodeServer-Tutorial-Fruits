@@ -44,16 +44,15 @@ struct ContentView: View {
 	@ObservedObject var viewModel = FruitListViewModel()
 
 	var body: some View {
-		return
-			NavigationView {
-				List(viewModel.fruits) { fruit in
-					FruitRow(fruit: fruit)
-				}
-				.onAppear {
-					self.viewModel.loadFruits()
-				}
-				.navigationBarTitle("Fruits")
-			}
+    NavigationView {
+      List(viewModel.fruits) { fruit in
+        FruitRow(fruit: fruit)
+      }
+      .onAppear {
+        self.viewModel.loadFruits()
+      }
+      .navigationBarTitle("Fruits")
+    }.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
